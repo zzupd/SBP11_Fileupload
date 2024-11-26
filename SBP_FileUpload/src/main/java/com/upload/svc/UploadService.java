@@ -17,11 +17,12 @@ public class UploadService {
 			MultipartHttpServletRequest multiReq
 			) {
 		
-		MultipartFile multipartFile = multiReq.getFile("fName");
-		
+		// 텍스트 데이터 처리	
 		String writer = multiReq.getParameter("writer");
 		System.out.println("writer : " + writer);
 		
+		// 파일 (데이터) 처리
+		MultipartFile multipartFile = multiReq.getFile("fName");		
 		String upFile = multipartFile.getOriginalFilename();
 		// 원본파일명
 		
@@ -35,7 +36,6 @@ public class UploadService {
 				String sysName = "";
 				
 				String realPath = "D:\\spring/uploadDir/";
-				
 				File folder = new File(realPath);
 				if(folder.isDirectory() == false) {
 					folder.mkdirs();
